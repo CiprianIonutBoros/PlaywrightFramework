@@ -27,20 +27,28 @@ test.describe('Checkout - Information Form Validation', () => {
     await expect(checkoutPage.errorMessageLocator).toContainText('Postal Code is required');
   });
 
-  test('TC-403 | Cancel button redirects back to the cart page', { tag: '@regression' }, async ({ checkoutPage, cartPage }) => {
-    await checkoutPage.cancel();
-    await expect(cartPage.titleLocator).toHaveText('Your Cart');
-  });
+  test(
+    'TC-403 | Cancel button redirects back to the cart page',
+    { tag: '@regression' },
+    async ({ checkoutPage, cartPage }) => {
+      await checkoutPage.cancel();
+      await expect(cartPage.titleLocator).toHaveText('Your Cart');
+    },
+  );
 
-  test('TC-404 | Valid information advances to the checkout overview', { tag: '@smoke' }, async ({ page, checkoutPage }) => {
-    await checkoutPage.fillInformation(
-      CheckoutInfo.valid.firstName,
-      CheckoutInfo.valid.lastName,
-      CheckoutInfo.valid.postalCode
-    );
-    await checkoutPage.continue();
-    await expect(page).toHaveURL(/.*checkout-step-two.html/);
-  });
+  test(
+    'TC-404 | Valid information advances to the checkout overview',
+    { tag: '@smoke' },
+    async ({ page, checkoutPage }) => {
+      await checkoutPage.fillInformation(
+        CheckoutInfo.valid.firstName,
+        CheckoutInfo.valid.lastName,
+        CheckoutInfo.valid.postalCode,
+      );
+      await checkoutPage.continue();
+      await expect(page).toHaveURL(/.*checkout-step-two.html/);
+    },
+  );
 });
 
 test.describe('Checkout - Order Summary Overview', () => {
@@ -53,7 +61,7 @@ test.describe('Checkout - Order Summary Overview', () => {
     await checkoutPage.fillInformation(
       CheckoutInfo.valid.firstName,
       CheckoutInfo.valid.lastName,
-      CheckoutInfo.valid.postalCode
+      CheckoutInfo.valid.postalCode,
     );
     await checkoutPage.continue();
   });
@@ -92,10 +100,14 @@ test.describe('Checkout - Order Summary Overview', () => {
     expect(total).toBeCloseTo(subtotal + tax, 2);
   });
 
-  test('TC-415 | Cancel from overview redirects to inventory page', { tag: '@regression' }, async ({ checkoutPage, inventoryPage }) => {
-    await checkoutPage.cancel();
-    await expect(inventoryPage.titleLocator).toHaveText('Products');
-  });
+  test(
+    'TC-415 | Cancel from overview redirects to inventory page',
+    { tag: '@regression' },
+    async ({ checkoutPage, inventoryPage }) => {
+      await checkoutPage.cancel();
+      await expect(inventoryPage.titleLocator).toHaveText('Products');
+    },
+  );
 });
 
 test.describe('Checkout - Order Confirmation', () => {
@@ -107,7 +119,7 @@ test.describe('Checkout - Order Confirmation', () => {
     await checkoutPage.fillInformation(
       CheckoutInfo.valid.firstName,
       CheckoutInfo.valid.lastName,
-      CheckoutInfo.valid.postalCode
+      CheckoutInfo.valid.postalCode,
     );
     await checkoutPage.continue();
     await checkoutPage.finish();
@@ -121,8 +133,12 @@ test.describe('Checkout - Order Confirmation', () => {
     await expect(checkoutPage.completeTextLocator).toContainText('Your order has been dispatched');
   });
 
-  test('TC-422 | Back Home button returns to the inventory page', { tag: '@smoke' }, async ({ checkoutPage, inventoryPage }) => {
-    await checkoutPage.backHome();
-    await expect(inventoryPage.titleLocator).toHaveText('Products');
-  });
+  test(
+    'TC-422 | Back Home button returns to the inventory page',
+    { tag: '@smoke' },
+    async ({ checkoutPage, inventoryPage }) => {
+      await checkoutPage.backHome();
+      await expect(inventoryPage.titleLocator).toHaveText('Products');
+    },
+  );
 });

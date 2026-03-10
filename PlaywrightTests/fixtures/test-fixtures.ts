@@ -25,7 +25,7 @@ export const test = base.extend<SauceDemoFixtures>({
     await loginPage.navigate();
     await loginPage.login(
       process.env.STANDARD_USER ?? Users.standard.username,
-      process.env.STANDARD_PASSWORD ?? Users.standard.password
+      process.env.STANDARD_PASSWORD ?? Users.standard.password,
     );
 
     await use(new InventoryPage(page));

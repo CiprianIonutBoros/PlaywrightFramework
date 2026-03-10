@@ -21,21 +21,29 @@ test.describe('Problem User - Known Defects', () => {
     expect(count).toBe(6);
   });
 
-  test('TC-701 | Problem user sees identical product images across catalog', { tag: '@regression' }, async ({ page }) => {
-    const images = await page.locator('.inventory_item_img img').evaluateAll(
-      (imgs: HTMLImageElement[]) => imgs.map(img => img.src)
-    );
-    const uniqueImages = new Set(images);
-    expect(uniqueImages.size).toBe(1);
-  });
+  test(
+    'TC-701 | Problem user sees identical product images across catalog',
+    { tag: '@regression' },
+    async ({ page }) => {
+      const images = await page
+        .locator('.inventory_item_img img')
+        .evaluateAll((imgs: HTMLImageElement[]) => imgs.map((img) => img.src));
+      const uniqueImages = new Set(images);
+      expect(uniqueImages.size).toBe(1);
+    },
+  );
 
-  test('TC-702 | Problem user product detail navigation resolves to incorrect item', { tag: '@regression' }, async ({ page }) => {
-    await inventoryPage.clickItemByName('Sauce Labs Backpack');
-    const itemDetailPage = new ItemDetailPage(page);
+  test(
+    'TC-702 | Problem user product detail navigation resolves to incorrect item',
+    { tag: '@regression' },
+    async ({ page }) => {
+      await inventoryPage.clickItemByName('Sauce Labs Backpack');
+      const itemDetailPage = new ItemDetailPage(page);
 
-    const name = await itemDetailPage.getItemName();
-    expect(name).toBeTruthy();
-  });
+      const name = await itemDetailPage.getItemName();
+      expect(name).toBeTruthy();
+    },
+  );
 
   test('TC-703 | Problem user sort by Z-A fails to reorder products', { tag: '@regression' }, async () => {
     await inventoryPage.sortBy('za');

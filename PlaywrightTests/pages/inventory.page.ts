@@ -64,7 +64,7 @@ export class InventoryPage {
 
   async getItemPrices(): Promise<number[]> {
     const priceTexts = await this.map.inventoryItemPrices.allInnerTexts();
-    return priceTexts.map(p => parseFloat(p.replace('$', '')));
+    return priceTexts.map((p) => parseFloat(p.replace('$', '')));
   }
 
   async getInventoryItemCount(): Promise<number> {

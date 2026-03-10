@@ -28,7 +28,7 @@ test.describe('Authentication', () => {
     await loginPage.login('invalid_user', 'wrong_password');
 
     await expect(loginPage.errorMessageLocator).toContainText(
-      'Username and password do not match any user in this service'
+      'Username and password do not match any user in this service',
     );
   });
 
