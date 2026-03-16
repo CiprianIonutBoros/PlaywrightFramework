@@ -12,7 +12,7 @@ A Playwright + TypeScript framework demonstrating E2E test automation for SauceD
 Implements Page Object Model with separated locator maps, custom fixtures,
 cross-browser support, and a CI/CD pipeline via GitHub Actions.
 
-Repository: https://github.com/BrownBear9208/PlaywrightFramework
+Repository: https://github.com/CiprianIonutBoros/PlaywrightFramework
 
 ---
 
