@@ -1,9 +1,9 @@
-# 🧪 Playwright Framework — SauceDemo E2E Tests
+# Playwright Framework — SauceDemo E2E Tests
 
 ![CI](https://github.com/BrownBear9208/PlaywrightFramework/actions/workflows/playwright.yml/badge.svg)
 ![Playwright](https://img.shields.io/badge/Playwright-1.58+-green)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8+-blue)
-![Node](https://img.shields.io/badge/Node.js-20+-green)
+![Node](https://img.shields.io/badge/Node.js-24-green)
 ![Tests](https://img.shields.io/badge/Tests-79+-brightgreen)
 
 Playwright Framework — SauceDemo E2E Tests
@@ -16,7 +16,7 @@ Repository: https://github.com/BrownBear9208/PlaywrightFramework
 
 ---
 
-# 🏗 Architecture
+# Architecture
 
 ```mermaid
 graph LR
@@ -47,20 +47,29 @@ graph LR
 
 ---
 
-# 📁 Project Structure
+# Project Structure
 
 ```mermaid
 graph TD
-    CI[".github/workflows/playwright.yml<br>CI/CD pipeline"]
-    CFG["playwright.config.ts"]
-    PKG["package.json"]
-    TSC["tsconfig.json"]
-    ESL["eslint.config.js"]
-    PRE[".prettierrc"]
-    ENV[".env.example"]
 
-    subgraph TESTS["PlaywrightTests"]
-        subgraph MAPS["PageMaps"]
+    ROOT["PlaywrightFramework"]
+
+    subgraph CONFIG["Root Configuration"]
+        CFG["playwright.config.ts"]
+        PKG["package.json"]
+        TSC["tsconfig.json"]
+        ESL["eslint.config.js"]
+        PRE[".prettierrc"]
+        ENV[".env.example"]
+    end
+
+    subgraph CI[".github/workflows"]
+        WF["playwright.yml"]
+    end
+
+    subgraph SRC["src"]
+        
+        subgraph MAPS["page-maps"]
             LM["login.map.ts"]
             IM["inventory.map.ts"]
             CM["cart.map.ts"]
@@ -76,30 +85,51 @@ graph TD
             IDP["item-detail.page.ts"]
         end
 
-        subgraph SUPPORT["fixtures + data"]
+        subgraph FIXTURES["fixtures"]
             TF["test-fixtures.ts"]
-            TD["test-data.ts"]
         end
 
-        subgraph SPECS["specs"]
-            S1["login.spec.ts"]
-            S2["inventory.spec.ts"]
-            S3["item-detail.spec.ts"]
-            S4["cart.spec.ts"]
-            S5["checkout.spec.ts"]
-            S6["e2e-journey.spec.ts"]
-            S7["all-products.spec.ts"]
-            S8["problem-user.spec.ts"]
-            S9["cart-persistence.spec.ts"]
+        subgraph DATA["data"]
+            TD["test-data.ts"]
         end
     end
 
-    CI --> CFG
-    CI --> PKG
-    CI --> SPECS
+    subgraph TESTS["PlaywrightTests"]
 
-    SPECS --> TF
-    SPECS --> TD
+        subgraph AUTH["auth"]
+            S1["login.spec.ts"]
+        end
+
+        subgraph INVENTORY["inventory"]
+            S2["inventory.spec.ts"]
+            S3["item-detail.spec.ts"]
+            S7["all-products.spec.ts"]
+        end
+
+        subgraph CART["cart"]
+            S4["cart.spec.ts"]
+            S9["cart-persistence.spec.ts"]
+        end
+
+        subgraph CHECKOUT["checkout"]
+            S5["checkout.spec.ts"]
+        end
+
+        subgraph E2E["e2e"]
+            S6["e2e-journey.spec.ts"]
+            S8["problem-user.spec.ts"]
+        end
+    end
+
+
+    ROOT --> CONFIG
+    ROOT --> SRC
+    ROOT --> TESTS
+    ROOT --> CI
+
+    TESTS --> TF
+    TESTS --> TD
+
     TF --> PAGES
 
     LP --> LM
@@ -109,14 +139,14 @@ graph TD
     IDP --> IDM
 
     CFG --> ENV
-    TSC --> TESTS
-    ESL --> TESTS
-    PRE --> TESTS
+    TSC --> SRC
+    ESL --> SRC
+    PRE --> SRC
 ```
 
 ---
 
-# ⚙️ Setup
+# Setup
 
 ### Clone repository
 
@@ -147,7 +177,7 @@ Edit `.env` if needed.
 
 ---
 
-# 🧪 Run Tests
+# Run Tests
 
 | Command | Description |
 |------|-------------|
@@ -164,7 +194,7 @@ Edit `.env` if needed.
 
 ---
 
-# 🧹 Code Quality
+# Code Quality
 
 | Command | Description |
 |------|-------------|
@@ -184,7 +214,7 @@ on staged `.ts` files before committing.
 
 ---
 
-# 🚀 CI/CD Pipeline
+# CI/CD Pipeline
 
 GitHub Actions pipeline triggers on **push or pull request** to `main`.
 
@@ -215,7 +245,7 @@ REGRESSION (parallel matrix)
 
 ---
 
-# 📊 Test Coverage Map
+# Test Coverage Map
 
 | Test ID Range | Spec File | Area | Count |
 |------|-------------|------|------|
@@ -233,7 +263,7 @@ Total tests: **79+**
 
 ---
 
-# 🧰 Tech Stack
+# Tech Stack
 
 | Tool | Purpose |
 |-----|--------|
@@ -249,7 +279,7 @@ Total tests: **79+**
 
 ---
 
-# 🔐 Environment Variables
+# Environment Variables
 
 | Variable | Default | Description |
 |------|---------|-------------|
@@ -260,7 +290,7 @@ Total tests: **79+**
 
 ---
 
-# 🧩 Design Patterns
+# Design Patterns
 
 - **Page Object Model (POM)**  
   Split into **PageMaps (locators)** and **Pages (actions)**
