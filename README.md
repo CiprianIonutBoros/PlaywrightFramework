@@ -1,6 +1,6 @@
 # Playwright Framework — SauceDemo E2E Tests
 
-![CI](https://github.com/BrownBear9208/PlaywrightFramework/actions/workflows/playwright.yml/badge.svg)
+![CI](https://github.com/CiprianIonutBoros/PlaywrightFramework/actions/workflows/playwright.yml/badge.svg)
 ![Playwright](https://img.shields.io/badge/Playwright-1.58+-green)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8+-blue)
 ![Node](https://img.shields.io/badge/Node.js-24-green)
@@ -151,7 +151,7 @@ graph TD
 ### Clone repository
 
 ```bash
-git clone https://github.com/BrownBear9208/PlaywrightFramework.git
+git clone https://github.com/CiprianIonutBoros/PlaywrightFramework.git
 cd PlaywrightFramework
 ```
 
