@@ -1,5 +1,5 @@
-﻿import { test, expect } from './fixtures/test-fixtures';
-import { CheckoutInfo } from './data/test-data';
+﻿import { test, expect } from '../../src/fixtures/test-fixtures';
+import { CheckoutInfo } from '../../src/data/test-data';
 
 test.describe('E2E - Purchase Workflows', () => {
   test(

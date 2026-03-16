@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures/test-fixtures';
+import { test, expect } from '../../src/fixtures/test-fixtures';
 
 test.describe('Shopping Cart', () => {
   test.beforeEach(async ({ page }) => {

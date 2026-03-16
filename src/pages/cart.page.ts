@@ -1,5 +1,5 @@
 import { type Page, type Locator } from '@playwright/test';
-import { CartMap } from '../PageMaps/cart.map';
+import { CartMap } from '../page-maps/cart.map';
 
 export class CartPage {
   private readonly map: CartMap;

@@ -12,12 +12,12 @@
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "@pages/*": ["PlaywrightTests/pages/*"],
-      "@maps/*": ["PlaywrightTests/PageMaps/*"],
-      "@data/*": ["PlaywrightTests/data/*"],
-      "@fixtures/*": ["PlaywrightTests/fixtures/*"]
+      "@pages/*": ["src/pages/*"],
+      "@maps/*": ["src/page-maps/*"],
+      "@data/*": ["src/data/*"],
+      "@fixtures/*": ["src/fixtures/*"]
     }
   },
-  "include": ["PlaywrightTests/**/*.ts", "playwright.config.ts"],
+  "include": ["src/**/*.ts", "PlaywrightTests/**/*.ts", "playwright.config.ts"],
   "exclude": ["node_modules", "dist", "test-results", "playwright-report"]
 }

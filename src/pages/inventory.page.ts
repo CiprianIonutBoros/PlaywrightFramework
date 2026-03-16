@@ -1,5 +1,5 @@
 import { type Page, type Locator } from '@playwright/test';
-import { InventoryMap } from '../PageMaps/inventory.map';
+import { InventoryMap } from '../page-maps/inventory.map';
 
 export class InventoryPage {
   private readonly map: InventoryMap;

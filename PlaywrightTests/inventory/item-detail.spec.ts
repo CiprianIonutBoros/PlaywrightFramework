@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures/test-fixtures';
+import { test, expect } from '../../src/fixtures/test-fixtures';
 
 test.describe('Product Detail Page', () => {
   test.beforeEach(async ({ page, inventoryPage }) => {

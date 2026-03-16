@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from './pages/login.page';
-import { InventoryPage } from './pages/inventory.page';
-import { Users } from './data/test-data';
+import { LoginPage } from '../../src/pages/login.page';
+import { InventoryPage } from '../../src/pages/inventory.page';
+import { Users } from '../../src/data/test-data';
 
 test.describe('Authentication', () => {
   let loginPage: LoginPage;

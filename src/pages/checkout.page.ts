@@ -1,5 +1,5 @@
 import { type Page, type Locator } from '@playwright/test';
-import { CheckoutMap } from '../PageMaps/checkout.map';
+import { CheckoutMap } from '../page-maps/checkout.map';
 
 export class CheckoutPage {
   private readonly map: CheckoutMap;

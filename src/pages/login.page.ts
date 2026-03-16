@@ -1,5 +1,5 @@
 import { type Page, type Locator } from '@playwright/test';
-import { LoginMap } from '../PageMaps/login.map';
+import { LoginMap } from '../page-maps/login.map';
 
 export class LoginPage {
   private readonly map: LoginMap;

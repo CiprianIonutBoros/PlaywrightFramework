@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures/test-fixtures';
+import { test, expect } from '../../src/fixtures/test-fixtures';
 
 const ALL_PRODUCTS = [
   'Sauce Labs Backpack',

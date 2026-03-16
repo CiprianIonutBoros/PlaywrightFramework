@@ -20,7 +20,6 @@ export const test = base.extend<SauceDemoFixtures>({
   },
 
   inventoryPage: async ({ page }, use) => {
-    // Login before providing the inventory page
     const loginPage = new LoginPage(page);
     await loginPage.navigate();
     await loginPage.login(

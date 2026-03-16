@@ -1,5 +1,5 @@
 import { type Page, type Locator } from '@playwright/test';
-import { ItemDetailMap } from '../PageMaps/item-detail.map';
+import { ItemDetailMap } from '../page-maps/item-detail.map';
 
 export class ItemDetailPage {
   private readonly map: ItemDetailMap;
