@@ -8,7 +8,7 @@
 
 Playwright Framework — SauceDemo E2E Tests
 
-A Playwright + TypeScript framework demonstrating E2E test automation for SauceDemo.
+A Playwright with TypeScript framework demonstrating E2E test automation for SauceDemo.
 Implements Page Object Model with separated locator maps, custom fixtures,
 cross-browser support, and a CI/CD pipeline via GitHub Actions.
 
